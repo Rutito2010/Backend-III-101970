@@ -1,26 +1,11 @@
-# ShipNow API — Versión 1 (punto de partida)
+# ShipNow API
 
-API de logística de ShipNow **tal como llega al inicio de la semana**. Corre, crea usuarios, pedidos y entregas, y habla con MongoDB.
+API de logística con Node.js, Express y MongoDB.
 
-Eso no significa que esté lista para crecer.
+## Requisitos
 
-## Qué vas a encontrar
-
-- Express + Mongoose en un solo `src/server.js`
-- Rutas que validan, calculan, consultan la base y responden HTTP en el mismo archivo
-- Puerto, URI de Mongo y secretos escritos en el código
-- Roles y estados como strings sueltos (`'admin'`, `'created'`, `'delivered'`)
-
-El material de la clase está en `docs-clase/`. El paso a paso parte de **este** árbol y lo lleva a una arquitectura por capas.
-
-Snapshots en `docs-clase/demo/`:
-
-| Carpeta | Rol |
-| --- | --- |
-| `start/` | Partida congelada de esta clase (seed v1). Sirve para resetear. |
-| `solucion/` | Llegada de esta clase. **Es el start de Clase-2.** |
-
-No arranques la semana desde `solucion/`.
+- Node.js 18+
+- MongoDB en local
 
 ## Instalación
 
@@ -29,44 +14,30 @@ npm install
 npm run dev
 ```
 
-MongoDB tiene que estar levantado. La app se conecta a `mongodb://localhost:27017/shipnow` (valor fijo en `src/server.js`).
-
-## Postman
-
-En `postman/`:
-
-1. Importá `ShipNow-Clase-1.postman_collection.json`
-2. Importá `ShipNow-Clase-1.postman_environment.json`
-3. Seleccioná el environment **ShipNow Clase-1 Local**
-4. Corré la carpeta **00 - Flujo completo** (Run collection) o request por request
-
-Los scripts guardan `userId`, `driverId`, `orderId` y `deliveryId` solos. Sirven en v1 (objeto plano) y después del refactor (`{ status, payload }`).
+La app se conecta a `mongodb://localhost:27017/shipnow` (valor en `src/server.js`) y escucha en el puerto `8080`.
 
 ## Endpoints
 
 | Método | Ruta | Descripción |
-|--------|------|-------------|
-| GET | /api/health | Health check |
-| GET | /api/users | Listar usuarios |
-| GET | /api/users/:id | Obtener usuario por ID |
-| POST | /api/users | Crear usuario |
-| PUT | /api/users/:id | Actualizar usuario |
-| DELETE | /api/users/:id | Eliminar usuario |
-| GET | /api/orders | Listar pedidos |
-| GET | /api/orders/:id | Obtener pedido por ID |
-| POST | /api/orders | Crear pedido |
-| PUT | /api/orders/:id | Actualizar pedido |
-| DELETE | /api/orders/:id | Eliminar pedido |
-| GET | /api/deliveries | Listar entregas |
-| GET | /api/deliveries/:id | Obtener entrega por ID |
-| POST | /api/deliveries | Crear entrega |
-| PUT | /api/deliveries/:id | Actualizar entrega |
-| DELETE | /api/deliveries/:id | Eliminar entrega |
+| --- | --- | --- |
+| GET | `/api/health` | Health check |
+| GET/POST | `/api/users` | Listar / crear usuarios |
+| GET/PUT/DELETE | `/api/users/:id` | Obtener / actualizar / eliminar |
+| GET/POST | `/api/orders` | Listar / crear pedidos |
+| GET/PUT/DELETE | `/api/orders/:id` | Obtener / actualizar / eliminar |
+| GET/POST | `/api/deliveries` | Listar / crear entregas |
+| GET/PUT/DELETE | `/api/deliveries/:id` | Obtener / actualizar / eliminar |
 
-## Objetivo de la semana
+## Postman
 
-Pasar de este proyecto a:
+1. Importá `postman/ShipNow-Clase-1.postman_collection.json`
+2. Importá `postman/ShipNow-Clase-1.postman_environment.json`
+3. Seleccioná el environment **ShipNow Clase-1 Local**
+4. Corré la carpeta **00 - Flujo completo**
 
-- `Router → Controller → Service → Repository → Model`
-- Configuración de entorno validada al arranque
-- Constantes de dominio (roles, estados, prioridades)
+## Scripts
+
+| Comando | Uso |
+| --- | --- |
+| `npm run dev` | Desarrollo con nodemon |
+| `npm start` | Producción |

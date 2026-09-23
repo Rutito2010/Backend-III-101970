@@ -1,0 +1,32 @@
+# ============================================================
+# .gitignore — Archivos que NO se suben al repositorio
+# ============================================================
+#
+# 📌 NOTA PARA EL ALUMNO:
+# Este archivo es FUNDAMENTAL. Sin él, podrías subir
+# credenciales, dependencias innecesarias o archivos
+# generados automáticamente al repositorio.
+#
+# Regla de oro: si se genera automáticamente, no va al repo.
+# ============================================================
+
+# Dependencias
+node_modules
+
+# Variables de entorno (¡contienen secretos!)
+.env
+
+# Logs generados por la aplicación
+logs/
+*.log
+
+# Archivos subidos por usuarios (Multer)
+uploads/*
+!uploads/**/.gitkeep
+
+# Cobertura de tests
+coverage
+
+# Archivos temporales
+npm-debug.log*
+.DS_Store

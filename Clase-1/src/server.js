@@ -11,12 +11,12 @@ async function startServer() {
       console.log(`Servidor iniciado en el puerto ${config.port}`)
       console.log(`Entorno: ${config.enviroment}`)
     })
-    
+
   } catch (error) {
     console.log("Error al iniciar el servido", error.message)
     process.exit(1)
   }
-  
+
 }
 
 startServer()

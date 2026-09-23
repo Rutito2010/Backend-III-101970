@@ -41,7 +41,7 @@ class OrderService {
             shipmentValue: total,
             apiKey: config.jwtSecret
         })
-        
+
         return this.orderRepository.create({
             ...orderData,
             declaredValue: total,
@@ -56,7 +56,7 @@ class OrderService {
         const updatedOrder = await this.orderRepository.update(id, orderData)
         if(!updatedOrder){
             throw new Error("Pedido no encontrado")
-        } 
+        }
         return updatedOrder
     }
 
@@ -64,10 +64,9 @@ class OrderService {
         const deletedOrder = await this.orderRepository.delete(id)
         if(!deletedOrder){
             throw new Error("Pedido no encontrado")
-        } 
+        }
         return deletedOrder
     }
-
 
     calculateShippingCost({isProduction, shipmentValue, apiKey }){
         if(!apiKey){
