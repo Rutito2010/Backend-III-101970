@@ -1,0 +1,37 @@
+{
+  "name": "shipnow-clase-7",
+  "version": "7.0.0-start",
+  "description": "ShipNow API - punto de partida Clase-7 (testing integrado, sin Multer)",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "backend",
+    "api",
+    "logistica",
+    "coderhouse"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "bcrypt": "^6.0.0",
+    "chai": "^6.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mocha": "^12.0.3",
+    "mongoose": "^8.12.1",
+    "multer": "^2.5.0",
+    "supertest": "^7.3.1",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
