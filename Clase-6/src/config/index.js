@@ -16,7 +16,7 @@ requiredEnvVars.forEach((envVar) => {
 
 const config = {
   port: parseInt(process.env.PORT, 10) || 8080,
-  mongoUri: process.env.MONGODB_URI_TEST,
+  mongoUri: process.env.MONGODB_URI,
   jwtSecret: process.env.JWT_SECRET,
   nodeEnv: process.env.NODE_ENV || 'development',
   logLevel: process.env.LOG_LEVEL || 'debug'
